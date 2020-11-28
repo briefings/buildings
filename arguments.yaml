@@ -1,4 +1,4 @@
 dataSource: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/data/"
-dataFiles: ["SeriesReport-202011271031", "SeriesReport-202011271034", "SeriesReport-202011271046", "SeriesReport-202011271047"]
-dataFilesExt: ".csv"
-dataSchema: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/schemata/schemaOfBuildings.json"
+namesOf: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/names/namesOf.csv"
+typeOf: ".csv"
+schemaOf: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/schemata/schemaOf.json"
