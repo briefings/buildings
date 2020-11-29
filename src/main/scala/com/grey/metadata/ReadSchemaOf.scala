@@ -15,18 +15,16 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.{DataType, StructType}
 
-class ReadSchema(spark: SparkSession) {
+class ReadSchemaOf(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
   private val dataDirectories = new DataDirectories()
 
-  def readSchema(parameters: InspectArguments.Parameters): Try[StructType] = {
-
+  def readSchemaOf(parameters: InspectArguments.Parameters): Try[StructType] = {
 
     // Logging
     val logger: Logger = Logger(this.getClass)
     logger.isInfoEnabled
-
 
     // The directory, schema file (including its extension), ...
     val directoryString = localSettings.resourcesDirectory + "schemata"
@@ -34,11 +32,9 @@ class ReadSchema(spark: SparkSession) {
     val directoryAndFileString = Paths.get(directoryString, fileString).toString
     logger.info(fileString)
 
-
     // If the directory does not exist create it; at present, the
     // delete & re-create approach doesn't suffice
     val make: Try[Boolean] = dataDirectories.make(new File(directoryString))
-
 
     // Unload the schema file into a local directory ...
     val schemaOf: Try[Unit] = if (make.isSuccess) { Exception.allCatch.withTry(
@@ -48,18 +44,15 @@ class ReadSchema(spark: SparkSession) {
       sys.error(make.failed.get.getMessage)
     }
 
-
     // Failure?
     if (schemaOf.isFailure) {
       sys.error(schemaOf.failed.get.getMessage)
     }
 
-
     // Read-in the schema
     val fieldProperties: Try[RDD[String]] = Exception.allCatch.withTry(
       spark.sparkContext.textFile(directoryAndFileString)
     )
-
 
     // Convert schema to StructType
     if (fieldProperties.isSuccess){
@@ -69,7 +62,6 @@ class ReadSchema(spark: SparkSession) {
     } else {
       sys.error(fieldProperties.failed.get.getMessage)
     }
-
 
   }
 
