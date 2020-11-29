@@ -27,7 +27,9 @@ object BuildingsApp {
 
     // Spark session instance
     val spark = SparkSession.builder()
-      .appName("buildings").getOrCreate()
+      .appName("buildings")
+      .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+      .getOrCreate()
 
 
     // Spark logs level
