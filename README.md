@@ -1,1 +1,2 @@
-# buildings
+
+Just starting ... a brief investigation via Census Bureau buildings data  ...
