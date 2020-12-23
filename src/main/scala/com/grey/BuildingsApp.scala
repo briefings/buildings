@@ -8,7 +8,6 @@ object BuildingsApp {
 
   def main(args: Array[String]): Unit = {
 
-
     // Arguments
     if (args.length == 0) {
       sys.error("The YAML of parameters is required.")
