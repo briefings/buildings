@@ -3,10 +3,11 @@ package com.grey
 import java.io.File
 import java.nio.file.Paths
 
+import com.grey.analyse.ViaSQL
 import com.grey.directories.LocalSettings
 import com.grey.inspectors.InspectArguments
 import com.grey.metadata.ReadSchemaOf
-import org.apache.spark.sql.functions.lit
+import org.apache.spark.sql.functions.{date_format, lit, month, to_date, year}
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
@@ -57,10 +58,21 @@ class DataSteps(spark: SparkSession) {
     val pillar: DataFrame = sections.reduce(_ union _)
 
     // Pivot
-    val readings = pillar.groupBy($"Period").pivot($"region").sum("Value")
-    readings.show()
-    println(readings.count())
-    readings.printSchema()
+    val readings: DataFrame = pillar.groupBy($"Period").pivot($"region").sum("Value")
+
+    // Extract the date, year, month, and month name from the date/period string
+    val extended: DataFrame = readings.withColumn("date", to_date($"Period", "MMM-yyyy"))
+      .withColumn("year", year($"date"))
+      .withColumn("month", month($"date"))
+      .withColumn("month_name", date_format($"date", "MMM"))
+      .drop($"Period")
+    extended.printSchema()
+
+
+    // Hence
+    println("SQL")
+    new ViaSQL(spark = spark).viaSQL(extended = extended)
+
 
   }
 
