@@ -1,6 +1,10 @@
 ## Buildings
 
-Just starting ... a brief investigation via Census Bureau buildings data  ...
+**Brief Investigations**: via Census Bureau buildings data
+
+* [Sources](#sources)
+* [Logging](#logging)
+* [Environment](#environment)
 
 <br>
 
@@ -14,22 +18,33 @@ Just starting ... a brief investigation via Census Bureau buildings data  ...
 
 ### Logging
 
-* [scala-logging](https://index.scala-lang.org/lightbend/scala-logging/scala-logging/3.9.2?target=_2.11)
-* [ScalaLogging](https://www.playframework.com/documentation/2.6.x/ScalaLogging)
+* [scala-logging](https://index.scala-lang.org/lightbend/scala-logging/scala-logging/3.9.2?target=_2.11) <br>
+    ```
+    <groupId>com.typesafe.scala-logging</groupId>
+    <artifactId>scala-logging_2.11</artifactId>
+    <version>3.9.2</version>
+    
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+    ```
+            
+    ```import com.typesafe.scalalogging.Logger```
+
+* [ScalaLogging](https://www.playframework.com/documentation/2.6.x/ScalaLogging) <br>
+    ```
+    <groupId>com.typesafe.play</groupId>
+    <artifactId>play_2.11</artifactId>
+    <version>2.7.7</version>
+    ```
+    
+    ```import play.api.Logger```
+    
 * [Log4j](https://logging.apache.org/log4j/2.x/)
   * [Scala API](https://logging.apache.org/log4j/scala/)
   * [Tutorials](https://howtodoinjava.com/log4j/)
   * [Console Appender](https://howtodoinjava.com/log4j/log4j-console-appender-example/)
 
-Either
-
-* https://www.playframework.com/documentation/2.6.x/ScalaLogging
-  * com.typesafe.play:play_2.11: `import play.api.Logger`
-
-or
-
-* https://index.scala-lang.org/lightbend/scala-logging/scala-logging/3.9.2?target=_2.11
-  * com.typesafe.scala-logging:scala-logging_2.11: `import com.typesafe.scalalogging.Logger`
 
 <br>
 
