@@ -16,7 +16,7 @@
       "nullable": false,
       "metadata":
       {
-        "comment": "Total Units, which have not been seasonally adjusted.  Measured in Thousands of Units"
+        "comment": "Total Units, which have not been seasonally adjusted.  Measured in thousands of units."
       }
     }
   ]

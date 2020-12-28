@@ -64,13 +64,13 @@ class DataSteps(spark: SparkSession) {
     val extended: DataFrame = readings.withColumn("date", to_date($"Period", "MMM-yyyy"))
       .withColumn("year", year($"date"))
       .withColumn("month", month($"date"))
-      .withColumn("month_name", date_format($"date", "MMM"))
+      .withColumn("month_name", date_format($"date", "MMMM"))
       .drop($"Period")
     extended.printSchema()
 
 
     // Hence
-    println("SQL")
+    println("Via SQL")
     new ViaSQL(spark = spark).viaSQL(extended = extended)
 
 

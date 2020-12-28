@@ -4,7 +4,8 @@ import java.io.File
 import java.net.URL
 import java.nio.file.Paths
 
-import play.api.Logger
+import com.typesafe.scalalogging.Logger
+
 import org.apache.commons.io.FileUtils
 
 import scala.util.Try
@@ -23,8 +24,8 @@ class ReadSchemaOf(spark: SparkSession) {
   def readSchemaOf(parameters: InspectArguments.Parameters): Try[StructType] = {
 
     // Logging
-    val logger: Logger = Logger(this.getClass)
-    logger.isInfoEnabled
+    val logger: Logger = Logger(classOf[ReadSchemaOf])
+
 
     // The directory, schema file (including its extension), ...
     val directoryString = localSettings.resourcesDirectory + "schemata"
