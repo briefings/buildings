@@ -1,6 +1,10 @@
 ## Buildings
 
-Just starting ... a brief investigation via Census Bureau buildings data  ...
+**Brief Investigations**: via Census Bureau buildings data
+
+* [Sources](#sources)
+* [Logging](#logging)
+* [Environment](#environment)
 
 <br>
 
