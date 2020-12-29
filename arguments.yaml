@@ -1,4 +1,3 @@
 dataSource: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/data/"
-namesOf: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/names/namesOf.csv"
 typeOf: ".csv"
 schemaOf: "https://raw.githubusercontent.com/briefings/buildings/develop/src/main/resources/schemata/schemaOf.json"
