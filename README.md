@@ -89,9 +89,7 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
     
     Apache Maven 3.6.3 
     
-    # Packaging: 
-    
-    # either
+    # Packaging: either
     mvn clean package 
     
     # or 
