@@ -7,7 +7,8 @@
 * [Sources](#sources)
 * [Development Notes](#development-notes)
   * [Logging](#logging)
-  * [Environment](#environment)
+  * [Software](#software)
+  * [Running Apache Spark Packages](#running-apache-spark-packages)
 
 <br>
 
@@ -53,9 +54,7 @@
 
 <br>
 
-#### Environment
-
-**Software:**
+#### Software
 
 *  Java <br> 
     ```
@@ -117,20 +116,20 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
 
 <br>
 
-**Running Apache Spark Packages:** 
+#### Running Apache Spark Packages 
 
-Either
-```sbtshell
+* Either <br>
+    ```sbtshell
     spark-submit 
     --class com.grey.BuildingsApp 
     --master local[*] 
     target/buildings-...-jar-with-dependencies.jar 
         https://raw.githubusercontent.com/briefings/buildings/develop/arguments.yaml
-```
+    ```
 
-or
+* **or** <br>
 
-```bash
+    ```bash
     spark-submit 
     --class com.grey.BuildingsApp 
     --name "buildings" 
@@ -138,17 +137,17 @@ or
     --num-executors 2 
     target/buildings-1.0.87-jar-with-dependencies.jar 
         https://raw.githubusercontent.com/briefings/buildings/develop/arguments.yaml
-```
+    ```
+    
+    which allows for computation analysis.  **After** <br>
 
-The latter allows for computation analysis
-
-```sbtshell
+    ```sbtshell
     spark-class org.apache.spark.deploy.master.Master
     << spark://...:...
     
     spark-class org.apache.spark.deploy.worker.Worker spark://...:...
+    ```
     
-    http://localhost:8080
-```
-
-<img src="docs/applications.png" style="float:middle; width:50%">
+    **visit** http://localhost:8080
+    
+    <img src="docs/applications.png" style="float:middle; width:35%">
