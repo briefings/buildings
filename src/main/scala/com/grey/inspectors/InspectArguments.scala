@@ -35,16 +35,13 @@ object InspectArguments {
 
   }
 
+  // Verification of parameters
   class Parameters(@JsonProperty("dataSource") _dataSource: String,
-                   @JsonProperty("namesOf") _namesOf: String,
                    @JsonProperty("typeOf") _typeOf: String,
                    @JsonProperty("schemaOf") _schemaOf: String){
 
     require(_dataSource != null, "Parameter dataSource, i.e., data source URL, is required.")
     val dataSource: String = _dataSource
-
-    require(_namesOf != null, "Parameter namesOf, i.e., the list of files URL, is required.")
-    val namesOf: String = _namesOf
 
     require(_typeOf != null, "Parameter typeOf, i.e., the extension string of the files, is required.")
     val typeOf: String = _typeOf
