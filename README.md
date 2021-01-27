@@ -58,26 +58,26 @@
 #### Software
 
 *  Java <br> 
-    ```
-    java -version
+    ```sbtshell
+    $ java -version
     
-    java version "1.8.0_181"
-    Java(TM) SE Runtime Environment (build 1.8.0_181-b13) <br> 
-    Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
+       java version "1.8.0_181"
+       Java(TM) SE Runtime Environment (build 1.8.0_181-b13) <br> 
+       Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
     ```
 
 * Scala <br> 
     ```bash
-    scala -version
+    $ scala -version
     
-    Scala code runner version 2.11.12 -- Copyright 2002-2017, LAMP/EPFL
+      Scala code runner version 2.11.12 -- Copyright 2002-2017, LAMP/EPFL
     ```
 
 * Spark <br> 
     ```bash
-    spark-submit.cmd --version # **if** Operating System **is** Windows
+    $ spark-submit.cmd --version # **if** Operating System **is** Windows
     
-    Spark version 2.4.7
+      Spark version 2.4.7
     ```
 
 <br> 
@@ -86,15 +86,15 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
   
 * Maven <br>
     ```bash
-    mvn -version
+    $ mvn -version
     
-    Apache Maven 3.6.3 
+      Apache Maven 3.6.3 
     
     # Packaging: either
-    mvn clean package 
+    $ mvn clean package 
     
     # or 
-    mvn clean install
+    $ mvn clean install
     ```
   
 * SBT <br>
@@ -102,15 +102,15 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
     # Case Windows: Within CygWin
     
     # either
-    sbt about
+    $ sbt about
     
-    This is sbt 1.2.7
+      This is sbt 1.2.7
     ...
     
     # or 
-    sbt sbtVersion
+    $ sbt sbtVersion
     
-    1.2.7
+      1.2.7
     ```
 
 <br>
@@ -119,32 +119,32 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
 
 * Either <br>
     ```sbtshell
-    spark-submit 
-    --class com.grey.BuildingsApp 
-    --master local[*] 
-    target/buildings-...-jar-with-dependencies.jar 
+    $ spark-submit 
+      --class com.grey.BuildingsApp 
+      --master local[*] 
+      target/buildings-...-jar-with-dependencies.jar 
         https://raw.githubusercontent.com/briefings/buildings/develop/arguments.yaml
     ```
 
 * **or** <br>
 
     ```bash
-    spark-submit 
-    --class com.grey.BuildingsApp 
-    --name "buildings" 
-    --master spark://10.0.0.6:7077 
-    --num-executors 2 
-    target/buildings-1.0.87-jar-with-dependencies.jar 
+    $ spark-submit
+      --class com.grey.BuildingsApp 
+      --name "buildings" 
+      --master spark://10.0.0.6:7077 
+      --num-executors 2 
+      target/buildings-...-jar-with-dependencies.jar 
         https://raw.githubusercontent.com/briefings/buildings/develop/arguments.yaml
     ```
     
     which allows for computation analysis.  **After** <br>
 
     ```sbtshell
-    spark-class org.apache.spark.deploy.master.Master
-    << spark://...:...
+    $ spark-class org.apache.spark.deploy.master.Master
+      spark://...:...
     
-    spark-class org.apache.spark.deploy.worker.Worker spark://...:...
+    $ spark-class org.apache.spark.deploy.worker.Worker spark://...:...
     ```
     
     **visit** http://localhost:8080
