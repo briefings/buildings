@@ -1,4 +1,4 @@
-package com.grey.metadata
+package com.grey.sources
 
 import java.io.File
 import java.net.URL
@@ -16,15 +16,15 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.{DataType, StructType}
 
-class ReadSchemaOf(spark: SparkSession) {
+class SchemaOf(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
   private val dataDirectories = new DataDirectories()
 
-  def readSchemaOf(parameters: InspectArguments.Parameters): Try[StructType] = {
+  def schemaOf(parameters: InspectArguments.Parameters): Try[StructType] = {
 
     // Logging
-    val logger: Logger = Logger(classOf[ReadSchemaOf])
+    val logger: Logger = Logger(classOf[SchemaOf])
 
 
     // The directory, schema file (including its extension), ...
