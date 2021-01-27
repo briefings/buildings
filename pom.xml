@@ -137,7 +137,7 @@
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>target/</classpathPrefix>
-                            <mainClass>com.grey.ReaderSparkApp</mainClass>
+                            <mainClass>com.grey.BuildingsApp</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Implementation-Build>$\{buildNumber}</Implementation-Build>
