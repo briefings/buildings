@@ -9,6 +9,7 @@
   * [Logging](#logging)
   * [Software](#software)
   * [Running Apache Spark Packages](#running-apache-spark-packages)
+* [References](#references)  
 
 <br>
 
@@ -149,3 +150,15 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
     **visit** http://localhost:8080
     
     <img src="docs/applications.png" style="float:middle; width:35%">
+
+<br>
+
+### References
+
+* [Regular Expressions](https://dataschool.com/how-to-teach-people-sql/how-regex-works-in-sql/)
+
+* [Tool RegExr](https://regexr.com)
+
+* [top, limit, etc.](https://www.w3schools.com/sql/sql_top.asp)<br>
+    > *Not all database systems support the SELECT TOP clause. MySQL supports 
+the LIMIT clause to select a limited number of records, while Oracle uses ROWNUM*
