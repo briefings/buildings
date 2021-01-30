@@ -1,12 +1,8 @@
-## SQL & Datasets
-
-<br/>
-
-### Buildings
-
-<br/>
+## Apache Spark SQL & Datasets
 
 **Brief Investigations**: via Census Bureau buildings data
+
+<br/>
 
 * [Sources](#sources)
 * [Development Notes](#development-notes)
@@ -16,7 +12,8 @@
 
 <br/>
 
-#### Sources
+
+### Sources
 
 * Buildings
   * http://www.census.gov/econ/currentdata/
@@ -24,9 +21,9 @@
 
 <br/>
 
-#### Development Notes
+### Development Notes
 
-##### Logging
+#### Logging
 
 * [scala-logging](https://index.scala-lang.org/lightbend/scala-logging/scala-logging/3.9.2?target=_2.11) <br/>
     ```
@@ -58,7 +55,7 @@
 
 <br/>
 
-##### Software
+#### Software
 
 *  Java <br/> 
     ```
@@ -102,7 +99,7 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
   
 <br/>
 
-##### Running Apache Spark Packages 
+#### Running Apache Spark Packages 
 
 * Either <br/>
     ```sbtshell
