@@ -14,10 +14,12 @@ class DataReconfiguration(spark: SparkSession) {
     import spark.implicits._
     
     // Initially
+    println("The original data structure")
     frame.show(5)
 
     // Pivot
     val pivoted: DataFrame = frame.groupBy($"Period").pivot($"region").sum("Value")
+    println("The pivoted data structure")
     pivoted.show(5)
 
     // Extract the date, year, month, and month name from the date/period string
@@ -26,6 +28,7 @@ class DataReconfiguration(spark: SparkSession) {
       .withColumn("month", month($"date"))
       .withColumn("month_name", date_format($"date", "MMMM"))
       .drop($"Period")
+    println("The enhanced data set")
     extendedFrame.show(5)
     
     // Possible?
