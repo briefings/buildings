@@ -28,8 +28,11 @@ class DataSteps(spark: SparkSession) {
     buildingsFrame.createOrReplaceTempView("buildings")
 
     // Hence
-    println(buildingsFrame.count())
-    println(buildingsSet.count())
+    spark.sql("SHOW TABLES")
+
+    // Queries
+    new com.grey.queries.RelationalOperators(spark = spark).relationalOperators(buildings = buildingsSet)
+    new com.grey.queries.LogicalOperators(spark = spark).logicalOperators(buildings = buildingsSet)
 
   }
 

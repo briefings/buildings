@@ -1,4 +1,4 @@
-package com.grey.sql
+package com.grey.queries
 
 import com.typesafe.scalalogging.Logger
 import org.apache.spark.sql.SparkSession
