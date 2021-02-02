@@ -32,6 +32,7 @@ class DataSteps(spark: SparkSession) {
 
     // Queries
     new com.grey.sql.RelationalOperators(spark = spark).relationalOperators(buildings = buildingsSet)
+    new com.grey.sql.LogicalOperators(spark = spark).logicalOperators(buildings = buildingsSet)
 
   }
 
