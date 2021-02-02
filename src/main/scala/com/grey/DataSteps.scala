@@ -31,8 +31,8 @@ class DataSteps(spark: SparkSession) {
     spark.sql("SHOW TABLES")
 
     // Queries
-    new com.grey.sql.RelationalOperators(spark = spark).relationalOperators(buildings = buildingsSet)
-    new com.grey.sql.LogicalOperators(spark = spark).logicalOperators(buildings = buildingsSet)
+    new com.grey.queries.RelationalOperators(spark = spark).relationalOperators(buildings = buildingsSet)
+    new com.grey.queries.LogicalOperators(spark = spark).logicalOperators(buildings = buildingsSet)
 
   }
 
