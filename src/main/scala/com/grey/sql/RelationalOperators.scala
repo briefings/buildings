@@ -18,9 +18,11 @@ class RelationalOperators(spark: SparkSession) {
 
     println("\n\nRelational Operators")
 
+
     // logging
     val logger = Logger(classOf[RelationalOperators])
     logger.info("\n\nRelational Operators")
+
 
     // Import implicits for
     //    encoding (https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-Encoder.html)
@@ -46,7 +48,7 @@ class RelationalOperators(spark: SparkSession) {
     println(s"The # of months, since 1968, during which fewer than 20 thousand housing units " +
       s"where delivered in a month\n sql: ${south.count()}, dataset: $southSet")
 
-    
+
     // equal to
     val february: DataFrame = spark.sql("SELECT * FROM buildings WHERE month_name = 'February'")
 
