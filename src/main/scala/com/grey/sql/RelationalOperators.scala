@@ -1,7 +1,7 @@
 package com.grey.sql
 
 import com.typesafe.scalalogging.Logger
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 /**
   *
@@ -11,10 +11,18 @@ class RelationalOperators(spark: SparkSession) {
 
   /**
     * Operators: =, <> or !=, >, <, >=, <=
+    *
+    * @param buildings: For illustrating equivalent Dataset calculations
     */
-  def relationalOperators(): Unit = {
+  def relationalOperators(buildings: Dataset[Row]): Unit = {
 
     println("\n\nRelational Operators")
+
+    // Import implicits for
+    //    encoding (https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-Encoder.html)
+    //    implicit conversions, e.g., converting a RDD to a DataFrames.
+    //    access to the "$" notation.
+    import spark.implicits._
 
     // logging
     val logger = Logger(classOf[RelationalOperators])
@@ -22,16 +30,21 @@ class RelationalOperators(spark: SparkSession) {
 
     // greater than
     val west: DataFrame = spark.sql("SELECT * FROM buildings WHERE west > 50")
-    println("west > 50 thousand units: " + west.count())
+    val westSet: Long = buildings.filter($"west" > 50).count()
+    println(s"The # of months, since 1968, during which more than 50 thousand housing units " +
+      s"where delivered in a month\n sql: ${west.count()}, dataset: $westSet")
 
     // less than
     val south: DataFrame = spark.sql("SELECT * FROM buildings WHERE south < 20")
-    println("south < 20 thousand units: " + south.count())
+    val southSet: Long = buildings.filter($"south" < 20).count()
+    println(s"The # of months, since 1968, during which fewer than 20 thousand housing units " +
+      s"where delivered in a month\n sql: ${south.count()}, dataset: $southSet")
 
     // equal to
-    val february = spark.sql("SELECT * FROM buildings WHERE month_name = 'February'")
-    println("february: " + february.count())
-    february.show(5)
+    val february: DataFrame = spark.sql("SELECT * FROM buildings WHERE month_name = 'February'")
+    val februarySet: Long = buildings.filter($"month_name" === "February").count()
+    println(s"The # of records, i.e., the # of months, since 1968, associated with the month of February\n" +
+      s"sql: ${february.count()}, dataset: $februarySet")
 
   }
 
