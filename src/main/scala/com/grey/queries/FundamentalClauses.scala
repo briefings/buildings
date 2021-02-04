@@ -1,7 +1,7 @@
 package com.grey.queries
 
 import com.typesafe.scalalogging.Logger
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 /**
   *
@@ -12,7 +12,7 @@ class FundamentalOperators(spark: SparkSession) {
   /**
     * Examples: select, as, limit, order by
     */
-  def fundamentalOperators(): Unit = {
+  def fundamentalOperators(buildings: Dataset[Row]): Unit = {
 
     println("\n\nFundamentals")
 
