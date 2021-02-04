@@ -7,17 +7,17 @@ import org.apache.spark.sql.SparkSession
   *
   * @param spark: An instance of SparkSession
   */
-class Fundamentals(spark: SparkSession) {
+class FundamentalOperators(spark: SparkSession) {
 
   /**
     * Examples: select, as, limit, order by
     */
-  def fundamentals(): Unit = {
+  def fundamentalOperators(): Unit = {
 
     println("\n\nFundamentals")
 
     // logging
-    val logger = Logger(classOf[Fundamentals])
+    val logger = Logger(classOf[FundamentalOperators])
     logger.info("\n\nFundamentals")
 
     // select
