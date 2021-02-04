@@ -7,22 +7,25 @@ import org.apache.spark.sql.{Dataset, Row, SparkSession}
   *
   * @param spark: An instance of SparkSession
   */
-class FundamentalOperators(spark: SparkSession) {
+class FundamentalClauses(spark: SparkSession) {
 
   /**
-    * Examples: select, as, limit, order by
+    * Focus: limit, order by
+    *
+    * @param buildings: The Dataset[Row] of buildings
     */
-  def fundamentalOperators(buildings: Dataset[Row]): Unit = {
+  def fundamentalClauses(buildings: Dataset[Row]): Unit = {
 
-    println("\n\nFundamentals")
+
+    println("\n\nFundamental Clauses")
+
 
     // logging
-    val logger = Logger(classOf[FundamentalOperators])
-    logger.info("\n\nFundamentals")
+    val logger = Logger(classOf[FundamentalClauses])
+    logger.info("\n\nFundamental Clauses")
 
     // select
     spark.sql("SELECT year, month, west FROM buildings").show(5)
-    spark.sql("SELECT west AS West_Region FROM buildings").show(5)
 
     // limit
     spark.sql("SELECT * FROM buildings LIMIT 5").show()
