@@ -20,16 +20,10 @@ class ArithmeticExpressions(spark: SparkSession) {
     val logger = Logger(classOf[ArithmeticExpressions])
     logger.info("\n\nArithmetic Expressions")
 
-    // south west tallies
-    spark.sql("SELECT year, month, south, west, south + west AS southwest FROM buildings").show(5)
 
     // tallies of all regions
     spark.sql("SELECT year, month, " +
       "midwest, northeast, south, west, midwest + northeast + south + west AS sums FROM buildings").show(5)
-
-    // relations
-    spark.sql("SELECT year, month, midwest, northeast, west " +
-      "FROM buildings WHERE west > midwest + northeast").show(5)
 
     // percentages
     spark.sql("SELECT year, month, " +
