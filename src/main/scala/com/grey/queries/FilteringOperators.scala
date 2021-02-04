@@ -7,17 +7,17 @@ import org.apache.spark.sql.SparkSession
   *
   * @param spark: An instance of SparkSession
   */
-class Filters(spark: SparkSession) {
+class FilteringOperators(spark: SparkSession) {
 
   /**
     * Examples: where
     */
-  def filters(): Unit = {
+  def filteringOperators(): Unit = {
 
     println("\n\nFilters")
 
     // logging
-    val logger = Logger(classOf[Filters])
+    val logger = Logger(classOf[FilteringOperators])
     logger.info("\n\nFilters")
 
     // where
