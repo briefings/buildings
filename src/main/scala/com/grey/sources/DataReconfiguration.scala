@@ -14,7 +14,7 @@ class DataReconfiguration(spark: SparkSession) {
     import spark.implicits._
     
     // Initially
-    println("The original data structure")
+    println("\nThe original data structure")
     frame.show(5)
 
     // Pivot
