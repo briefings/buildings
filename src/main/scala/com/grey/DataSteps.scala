@@ -26,7 +26,12 @@ class DataSteps(spark: SparkSession) {
     spark.sql("SHOW TABLES")
 
     // Queries
+    new com.grey.queries.FundamentalClauses(spark = spark).fundamentalClauses(buildings = buildingsSet)
+    new com.grey.queries.FilteringOperators(spark = spark).filteringOperators(buildings = buildingsSet)
+    new com.grey.queries.RelationalOperators(spark = spark).relationalOperators(buildings = buildingsSet)
     new com.grey.queries.LogicalOperators(spark = spark).logicalOperators(buildings = buildingsSet)
+
+    new com.grey.queries.ArithmeticExpressions(spark = spark).arithmeticExpressions(buildings = buildingsSet)
 
   }
 
