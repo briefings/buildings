@@ -16,7 +16,7 @@
       "nullable": false,
       "metadata":
       {
-        "comment": "Total Units.  These have not been seasonally adjusted, and the unit of measure is thousands of units."
+        "comment": "Total Units.  Note, these have not been seasonally adjusted, and the unit of measure is thousands of units."
       }
     }
   ]
